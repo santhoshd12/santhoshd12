@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .banner{
+            display:block;
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <p>Image URL: {{ value.image.url }}</p> <!-- Debugging purpose -->
+    <img src="{{ value.image.url }}" alt="{{ value.name }}" style="max-width: 300px;" />
+        <p>{{ value.image.url}} | {{ value.image.path}}</p>
+        <h1>{{ value.name }}</h1>
+        <p>{{ value.age }}</p>
+        <p>{{ value.date }} </p>
+    {% endblock content %}
+</body>
+</html>

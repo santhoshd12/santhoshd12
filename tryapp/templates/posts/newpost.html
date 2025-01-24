@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{%block title%}
+New page
+{%endblock%}
+
+{% block content %}
+<h1>
+This is a new post page
+</h1>
+
+<form action="{% url 'tryapp:newpt' %}" method = 'post' enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}
+<button>add</button>
+</form>
+{% endblock content %}

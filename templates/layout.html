@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}this is given as title{% endblock  %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/about">about</a> | 
+        <a href="/home"> <span role="img" aria-label="home">🏡</span></a> | 
+        <a href=" {% url 'tryapp:listurl' %}">app</a> | 
+        {% if user.is_authenticated %}
+
+        <a href="{% url 'tryapp:newpt' %}">newpost</a>
+        {% comment %} <a href="{% url 'logout' %}">logout</a> {% endcomment %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button>logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'register' %}">register</a> | 
+        <a href="{% url 'login_page' %}">userLogin</a> 
+        
+        {% endif %}
+    <nav>
+     
+        {% block content %}
+        This is layout page {% endblock  %}
+   
+    
+</body>
+</html>
